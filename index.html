@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
+		<link href="css/jquery.confirmify.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.confirmify.js"></script>
+		<script>
+
+			function makeRed() {
+				$(document.body).css({ 'background': 'red' });
+			}
+
+			$(function() {
+				
+				$('.red-bg').click(function() {
+					$.confirmify({
+						message: 'Are you sure you want to make the background red?',
+						type: 'warning',
+						fadeSpeed: 200,
+						callback: makeRed
+					});
+				});
+
+				$('.blue-bg').click(function() {
+					$.confirmify({
+						message: 'Are you sure you want to make the background blue?',
+						type: 'warning',
+						callback: function() { 
+							$(document.body).css({ 'background': 'blue' }); 
+						}
+					});
+				});
+				
+				$('.notify-me').click(function() {
+					$.confirmify({
+						title: 'Hi There!',
+						message: 'So great to meet you finally!',
+						duration: 3000
+					});
+				});
+				
+				$('.notify-nodur').click(function() {
+					$.confirmify({
+						title: 'Hi There!',
+						message: 'You need to close this out or it won\'t go away!',
+						duration: false
+					});
+				});
+
+			});
+		</script>
+	</head>
+	<body style="padding: 10px;">
+		<p><button class="btn red-bg">Red Background</button></p>
+		<p><button class="btn blue-bg">Blue Background</button></p>
+		<p><button class="btn notify-me">Send a Notification</button></p>
+		<p><button class="btn notify-nodur">Send a Notification (no duration)</button></p>
+	</body>
+</html>
