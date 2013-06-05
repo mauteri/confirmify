@@ -1,6 +1,6 @@
 # Confirmify #
 
-Confirmation and Notification Plugin for jQuery. It's a nicer alternative to using alert() and confirm().
+Confirmation and Notification Plugin for jQuery -- nicer and more attractive than using `alert()` and `confirm()`!
 
 # Basic Usage #
 
