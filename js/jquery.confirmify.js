@@ -1,5 +1,5 @@
 /**
- * jquery.confirmify.js v0.1
+ * jquery.confirmify.js v0.2
  *
  * @author mauteri <mauteri@gmail.com>
  * 
@@ -23,13 +23,17 @@
 			fadeSpeed: 500,
 			close: true,
 			width: '400px',
-			position: 'fixed',
 			cancelFocus: false,
 			z_index: 9999,
 			callback: false
 		};
 
-		var settings = $.extend( {}, defaults, options );
+		// Configure settings
+		if( typeof $self.defaults !== 'undefined' ) {
+			defaults = $.extend( settings, defaults, $self.defaults );	
+		}
+		var settings = $.extend( settings, defaults, options );
+		
 		var html = $('<div />');
 		html.addClass('confirmify');
 		html.animate({ opacity: 0 }, 0);
@@ -62,6 +66,8 @@
 				html.addClass('alert-danger');
 				break;
 			case 'info':
+				html.addClass('alert-info');
+				break;
 			default:
 				html.addClass('alert-info');
 		}
@@ -90,7 +96,7 @@
 						'top': '-'+parseInt(current.html.height(), 10)+'px', 
 						'margin-left': '-'+parseInt(current.html.outerWidth(), 10)/2+'px',
 						'left': '50%',
-						'position': current.position,
+						'position': 'fixed',
 						'z-index': current.z_index
 					})
 					.animate({ 'opacity': 1, 'top': '10px' }, current.fadeSpeed);
@@ -100,7 +106,7 @@
 				
 				// Check if notification (no callback) or confirmation (callback)
 				if( !current.callback && current.duration ) {
-					var delay = setTimeout( function() { queueFinish(current) }, current.duration );
+					var delay = setTimeout( function() { queueFinish(current); }, current.duration );
 				} else {
 					current.html.on('click', '.confirmify-ok', function() {
 						current.callback();
@@ -116,7 +122,7 @@
 					queueFinish(current);
 				});
 
-			}
+			};
 			$self.runQueue($self.queue[0]);
 		}
 		
@@ -136,4 +142,4 @@
 		
 	};
 
-})( jQuery );
+}( jQuery ));

@@ -39,6 +39,13 @@ or assign an anonymous function
 * z_index **default is 9999**
 * callback **default is false - option must be a function for a confirmation**
 
+Global defaults can be set with the `$.confirmify.defaults` object. In the example below, I'm setting the global default for close to false and z-index to 100.
+
+$.confirmify.defaults = {
+	close: false,
+	z_index: 100
+};
+
 ## Coming Soon ##
 
 * keyboard **these will be keyboard bindings and will default to true**
@@ -47,6 +54,10 @@ or assign an anonymous function
 * cancelFocus **this will set primary button to Cancel rather than OK**
 
 # Version History #
+
+## 0.2 ##
+
+* Fixed a couple bugs. Added a global default override with $.confirmify.default object.
 
 ## 0.1 ##
    

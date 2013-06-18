@@ -11,7 +11,12 @@
 			}
 
 			$(function() {
-				
+				// Set global defaults
+				$.confirmify.defaults = {
+					close: false,
+					z_index: 100
+				};
+
 				$('.red-bg').click(function() {
 					$.confirmify({
 						message: 'Are you sure you want to make the background red?',
