@@ -41,10 +41,10 @@ or assign an anonymous function
 
 Global defaults can be set with the `$.confirmify.defaults` object. In the example below, I'm setting the global default for close to false and z-index to 100.
 
-$.confirmify.defaults = {
-	close: false,
-	z_index: 100
-};
+	$.confirmify.defaults = {
+		close: false,
+		z_index: 100
+	};
 
 ## Coming Soon ##
 
